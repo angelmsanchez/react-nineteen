@@ -1,9 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { useCountStore } from "./zustand/counter";
-import { Counter } from "./components/counter/Counter";
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { useCountStore } from './zustand/counter';
+import { Counter } from './components/counter/Counter';
 
 export default function App() {
   const [countLocal, setCount] = useState(0);

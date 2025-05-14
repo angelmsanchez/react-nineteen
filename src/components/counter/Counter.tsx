@@ -1,4 +1,4 @@
-import { useCountStore } from "../../zustand/counter";
+import { useCountStore } from '../../zustand/counter';
 
 export function Counter() {
   const { count } = useCountStore();
