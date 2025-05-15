@@ -10,7 +10,7 @@ export function InterceptorService(): void {
     (config: AxiosRequestConfig) => {
       return {
         ...config,
-        baseURL: 'https://finalspaceapi.com/api/v0/episode/',
+        baseURL: 'https://finalspaceapi.com/api/v0/',
         headers: {
           ...(config.headers as Record<string, string>),
         },

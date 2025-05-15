@@ -1,10 +1,8 @@
-import React from 'react';
-
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { WarriorInterface } from '../../interfaces';
 import swordLaser from '../../../assets/images/espada-laser.png';
+import { EpisodeInterface } from '../../interfaces';
 
 const LinkCustom = styled(Link)`
   padding: 1rem;
@@ -56,23 +54,17 @@ const Container = styled.div`
 `;
 
 interface Props {
-  warrior: WarriorInterface;
+  episode: EpisodeInterface;
 }
 
-export function WarriorCard(props: Props) {
-  const { warrior } = props;
+export function EpisodeCard(props: Props) {
+  const { episode } = props;
 
   return (
-    <LinkCustom to={`/warriors/detail/${warrior.id}`}>
-      <Title>{warrior.name}</Title>
+    <LinkCustom to={`/episodes/detail/${episode.id}`}>
+      <Title>{episode.name}</Title>
       <p>
-        <span>Hair Color:</span> {warrior.hair_color}
-      </p>
-      <p>
-        <span>Gender:</span> {warrior.gender}
-      </p>
-      <p>
-        <span>Height:</span> {warrior.height}
+        <span>Director:</span> {episode.director}
       </p>
       <Container>Go To Detail</Container>
     </LinkCustom>

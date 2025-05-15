@@ -1,0 +1,17 @@
+.episode-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 2rem auto 0;
+  max-width: 768px;
+
+  /* @media ${(props) => props.theme.screenXs} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @media ${(props) => props.theme.screenMd} {
+    max-width: 1024px;
+    justify-content: space-between;
+  } */
+}

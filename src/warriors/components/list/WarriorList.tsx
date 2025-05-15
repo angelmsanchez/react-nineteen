@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { WarriorInterface } from '../../interfaces';
-import { WarriorCard } from '../card/WarriorCard';
+import { WarriorCard } from '../card/EpisodeCard';
 
 const CardsContainer = styled.div`
   display: flex;

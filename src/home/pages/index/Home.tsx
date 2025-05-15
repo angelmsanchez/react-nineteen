@@ -26,7 +26,6 @@ export default function Home() {
 
   return (
     <HomeContainer>
-      <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {countLocal}
@@ -35,10 +34,11 @@ export default function Home() {
         <button onClick={reset}>reset</button>
         <Counter />
       </div>
+      <Link to="/episodes">
+        <Button>Episodes</Button>
+      </Link>
       <Link to="/warriors">
-        <Button>
-          <>Go List Warriors</>
-        </Button>
+        <Button>Go List Warriors</Button>
       </Link>
     </HomeContainer>
   );

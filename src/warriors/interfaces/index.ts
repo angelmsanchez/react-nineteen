@@ -1,1 +1,1 @@
-export * from './warrior.interface';
+export * from './episode.interface';
