@@ -10,8 +10,6 @@ export default function EpisodesPage() {
   return (
     <section>
       <h4>Episodes List</h4>
-      {/* <OriginalLength originalepisodes={originalWarriors} /> */}
-      {/* <FilterLength warriors={filterWarriors} /> */}
       <br />
       {!isLoading && episodes && (
         <>
