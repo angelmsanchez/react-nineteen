@@ -53,8 +53,25 @@ const Container = styled.div`
   }
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type WithOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+type WithRequired<T, K extends keyof T> = T & { [P in K]-?: T[P] };
 interface Props {
   episode: Partial<EpisodeInterface>;
+  // episode: Pick<EpisodeInterface, 'id' | 'name' | 'director'>;
+  // episode: Omit<
+  //   EpisodeInterface,
+  //   'air_date' | 'writer' | 'characters' | 'img_url'
+  // >;
+  // episode: WithOptional<
+  //   EpisodeInterface,
+  //   'air_date' | 'writer' | 'characters' | 'img_url'
+  // >;
+  // episode: WithRequired<
+  //   EpisodeInterface,
+  //   'id' | 'name' | 'director'
+  // >;
 }
 
 export function EpisodeCard(props: Props) {
