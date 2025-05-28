@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import { EpisodeInterface } from '../../interfaces';
@@ -11,9 +10,10 @@ interface Props {
   onNextPage: () => void;
 }
 
-export const EpisodeContainer = memo(function episodeList(props: Props) {
+export const EpisodeContainer = (props: Props) => {
   const { episodes, hasMorePages, onNextPage } = props;
   console.log('episodeList was rendered at', new Date().toLocaleTimeString());
+  console.log('episodeList :::', episodes);
 
   return (
     <div className="episode-container">
@@ -32,4 +32,4 @@ export const EpisodeContainer = memo(function episodeList(props: Props) {
       </InfiniteScroll>
     </div>
   );
-});
+};

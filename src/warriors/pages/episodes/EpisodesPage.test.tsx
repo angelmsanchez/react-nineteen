@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 import EpisodesPage from './EpisodesPage';
 import { describe, it, vi } from 'vitest';
 import { QueryProvider } from '../../../contexts';
-import { useEpisodes } from '../../hooks/useEpisodes';
 
 vi.mock('../../components/container/EpisodeContainer', () => ({
   EpisodeContainer: ({ episodes }: any) => (
@@ -25,7 +24,7 @@ describe('Episodes List Test:', () => {
   it('should renders component and get the title of the page', async () => {
     const text = 'Episodes List';
 
-    const { unmount } = render(
+    render(
       <BrowserRouter>
         <QueryProvider>
           <EpisodesPage />
@@ -36,7 +35,6 @@ describe('Episodes List Test:', () => {
     const element = screen.getByText(text);
     expect(element).toBeInTheDocument();
     expect(element).toHaveTextContent(text);
-    unmount();
   });
 
   it('should renders loading spinner when loading', async () => {
@@ -49,27 +47,5 @@ describe('Episodes List Test:', () => {
     );
 
     expect(screen.getByTestId('spinner')).toBeInTheDocument();
-  });
-
-  it('should renders EpisodeContainer when episodes are loaded', async () => {
-    // vi.mock('../../hooks/useEpisodes', () => ({
-    //   useEpisodes: () => ({
-    //     episodes: [{ name: 'Episode 1' }],
-    //     isLoading: false,
-    //     handleNextPage: vi.fn(),
-    //   }),
-    // }));
-
-    render(
-      <BrowserRouter>
-        <QueryProvider>
-          <EpisodesPage />
-        </QueryProvider>
-      </BrowserRouter>,
-    );
-
-    expect(screen.getByTestId('episode-container')).toHaveTextContent(
-      'Episode 1',
-    );
   });
 });

@@ -54,7 +54,7 @@ const Container = styled.div`
 `;
 
 interface Props {
-  episode: EpisodeInterface;
+  episode: Partial<EpisodeInterface>;
 }
 
 export function EpisodeCard(props: Props) {

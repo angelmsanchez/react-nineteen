@@ -1,24 +1,26 @@
-import React from 'react';
-
+import { describe, it } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { QueryProvider } from '../../../contexts';
+import { EpisodeCard } from './EpisodeCard';
 
-import { WarriorCard } from '../../card/WarriorCard';
-import { WarriorInterface } from '../../../interfaces';
+describe('EpisodeCard Test:', () => {
+  it('should renders component and get the button title', async () => {
+    const episode = {
+      id: 1,
+      name: 'episode-1',
+    };
 
-test('WarriorCard: renders component and get the name of Warrior', () => {
-  const warrior = {
-    name: 'Yoda',
-  } as WarriorInterface;
+    render(
+      <BrowserRouter>
+        <QueryProvider>
+          <EpisodeCard episode={episode} />
+        </QueryProvider>
+      </BrowserRouter>,
+    );
 
-  render(
-    <BrowserRouter>
-      <WarriorCard warrior={warrior} />
-    </BrowserRouter>,
-  );
-
-  const element = screen.getByText(warrior.name);
-  expect(element).toBeInTheDocument();
-  expect(element).toHaveTextContent(warrior.name);
-  expect(element).toHaveClass('warrior-card__name');
+    const element = screen.getByText(episode.name);
+    expect(element).toBeInTheDocument();
+    expect(element).toHaveTextContent(episode.name);
+  });
 });

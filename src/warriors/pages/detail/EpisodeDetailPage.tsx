@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { WarriorInterface } from '../../interfaces';
+import { EpisodeInterface } from '../../interfaces';
 import { Button, Spinner } from '../../../shared/components';
 import { useGet } from '../../../shared/services';
 
@@ -14,53 +14,51 @@ const DataContainer = styled.div`
   margin-top: 2rem;
 `;
 
-export default function WarriorDetailPage() {
+export default function EpisodeDetailPage() {
   const params = useParams();
-  const [warrior, setWarrior] = useState<WarriorInterface>();
-  const { data } = useGet<WarriorInterface>(`people/${params.idWarrior}`);
+  const [episode, setEpisode] = useState<EpisodeInterface>();
+  const { data } = useGet<EpisodeInterface>(`people/${params.idEpisode}`);
 
   useEffect(() => {
     if (data) {
-      setWarrior(data);
+      setEpisode(data);
     }
   }, [data]);
 
   return (
     <PageContainer>
-      <Link to='/warriors'>
+      <h1>Episode Detail Page</h1>
+      <Link to="/Episodes">
         <Button>
-          <>Go List Warriors</>
+          <>Go List Episodes</>
         </Button>
       </Link>
-      {warrior && (
+      {episode && (
         <DataContainer>
           <p>
-            <span>Name:</span> {warrior.name}
+            <span>Name:</span> {episode.name}
           </p>
           <p>
-            <span>Hair Color:</span> {warrior.hair_color}
+            <span>air_date:</span> {episode.air_date}
           </p>
           <p>
-            <span>Eye Color:</span> {warrior.eye_color}
+            <span>characters:</span> {episode.characters}
           </p>
           <p>
-            <span>Skin Color:</span> {warrior.skin_color}
+            <span>director:</span> {episode.director}
           </p>
           <p>
-            <span>Gender:</span> {warrior.gender}
+            <span>img_url:</span> {episode.img_url}
           </p>
           <p>
-            <span>Height:</span> {warrior.height}
+            <span>Name:</span> {episode.name}
           </p>
           <p>
-            <span>Mass:</span> {warrior.mass}
-          </p>
-          <p>
-            <span>Birth Year:</span> {warrior.birth_year}
+            <span>writer:</span> {episode.writer}
           </p>
         </DataContainer>
       )}
-      {!warrior && <Spinner />}
+      {!episode && <Spinner />}
     </PageContainer>
   );
 }
